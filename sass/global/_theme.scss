@@ -1,7 +1,7 @@
-$color-primary: #3a00ff !default;
-$color-primary-alt: #6f6ffd !default;
-$color-secondary: #d42257 !default;
-$color-background: #d2fbf7 !default;
+$color-primary: #ac4b1a !default;
+$color-primary-alt:#746c6c !default;
+$color-secondary: #343e52 !default;
+$color-background: #c6bcb3 !default;
 
 $brand-colors: (
   primary: $color-primary,
@@ -14,7 +14,7 @@ $color-body: scale-color(
   $lightness: -30%,
   $saturation: -50%
 ) !default;
-$color-gray: mix(#767676, $color-body, 70%) !default;
+$color-gray: mix(#090809, $color-body, 70%) !default;
 
 $colors: map-merge(
   $brand-colors,

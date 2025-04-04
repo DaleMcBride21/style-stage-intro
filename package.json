@@ -6,7 +6,7 @@
   "scripts": {
     "scss": "sass --no-source-map sass:public",
     "watch": "sass --no-source-map --watch sass:public",
-    "serve": "browser-sync start --server public --files public --port 1337",
+    "serve": "browser-sync start --server --files \"**/*\" --index \"index.html\" --port 1337 --open",
     "start": "npm-run-all scss --parallel watch serve"
   },
   "keywords": [

@@ -3,16 +3,25 @@ name: Deploy to Github Pages
 on:
   push:
     branches:
-      - main  # Set a branch name to trigger deployment
+      - main
 
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest    # Using latest Ubuntu for better performance
+    permissions:
+      contents: write         # Explicitly set permissions
+    
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3  # Using newer version
+        with:
+          fetch-depth: 1     # Shallow clone for faster checkout
+      
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           commit_message: ${{ github.event.head_commit.message }}
+          # Add these for better performance
+          force_orphan: true         # Keep only latest commit in gh-pages branch
+          enable_jekyll: false       # Disable Jekyll processing if not needed
